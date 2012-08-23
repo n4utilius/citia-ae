@@ -2,7 +2,9 @@
 <html lang="es-ES">
 <head>
 	<meta charset="UTF-8">
-	<link rel="styl esheet" href="/static/css/general.css">	
+	<link href='http://fonts.googleapis.com/css?family=Advent+Pro&subset=latin-ext' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/static/css/general.css">	
 	<style type="text/css">
 		
 
@@ -11,7 +13,7 @@
 </head>
 <body>	
 	<div id="wrapper">
-		<h1 id="banner"> Citia</h1>
+		<h1 id="banner"> <a href="/">Citia </a> </h1> 
 		<section> 
 			<link rel="stylesheet" href="/static/css/post.css">	
 			<script>
@@ -31,7 +33,8 @@
 
 				<article>
 					<div id="rightColumn" class="column">
-						<img id="photoPost" src="img/bg9.jpg" alt="_postName">	
+						<!--img id="photoPost" src="/static/img/bg9.jpg" alt="_postName"-->	
+						<img id="photoPost" src="" alt="_postName">	
 
 							<div id="comments" style="display:none;">
 								<h2 id="titleComments" class="subtitles"> Comentarios </h2>
@@ -43,32 +46,32 @@
 								</form>
 								<ul id="oldComments">
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>	
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>		
 									<li>
-										<img class="userPhoto" src="img/avatar.jpg" alt="">
+										<img class="userPhoto" src="/static/img/avatar.jpg" alt="">
 										<p class="comment" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 										tempor incididunt ut labore et dolore magna aliqua.  </p>
 									</li>	
@@ -79,7 +82,7 @@
 
 					<div id="leftColumn" class="column">
 						<img id="map" src="/static/img/staticmap.png" alt="mapa" />
-						<h2 id="titlePost" class="subtitles"> Lorem ipsum dolor ankdsl </h1>
+						<h2 id="titlePost" class="subtitles"> Lorem ipsum dolor <span id="num"> </span> </h1>
 
 						<ul id="metadata">
 							<li id="date"> Domingo 30 de julio de 2012</li>
@@ -107,6 +110,16 @@
 			<script type="text/javascript" src="http://sdk.cocoafish.com/js/cocoafish-1.2.min.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function() {
+					
+					if(parent.location.hash != ""){
+						var numPost = parent.location.hash.split("#").join("");	
+						$("img#photoPost").attr("src", "/static/img/bg" + numPost + ".jpg")
+						$("span#num").text(numPost)
+					}else{
+						$("img#photoPost").attr("src", "/static/img/bg2.jpg")
+						$("span#num").text("2")
+					}
+
 					$("a#verComentarios").toggle(
 						function(e){ 
 							e.preventDefault(); 
@@ -121,6 +134,8 @@
 							$("a#verComentarios").text("ver comentarios >>");
 						}
 					);
+
+
 				})
 			</script>
 		 </section>

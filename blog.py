@@ -5,7 +5,7 @@ from string import letters
 import webapp2
 import jinja2
 
-#from google.appengine.ext import db
+from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -28,7 +28,7 @@ class Home(BaseHandler):
 
 class Post(BaseHandler):
     def get(self):
-        self.render('post')    
+        self.render('post.html')    
 
 app = webapp2.WSGIApplication([('/', Home),
                                ('/post' , Post)],
