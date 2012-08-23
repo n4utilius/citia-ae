@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/static/css/general.css">	
+	<style type="text/css">
+		
+
+	</style>	
+	<title> Citia </title>
+</head>
+<body>	
+	<div id="wrapper">
+		<h1 id="banner"> Citia</h1>
+		<section> 
+			<script src='http://code.jquery.com/jquery-1.8.0.min.js'></script>
+	    	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.js'></script>
+	    	<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.3/mapbox.css' rel='stylesheet' />
+		    <style>
+			    #map {
+			      position: absolute;
+			      top: 0;
+			      bottom: 0;
+			      left: 0;
+			      right: 0;
+			    }
+		    </style>
+			<link rel="stylesheet" href="/static/css/home.css">	
+
+			<article>
+				<!--div id="leftColumn" class="column">
+					<h2>Categorías</h2>
+					<ul id="categorias">
+						<li>Categoría 1</li>
+						<li>Categoría 2</li>
+						<li>Categoría 3</li>
+						<li>Categoría 4</li>
+						<li>Categoría 5</li>
+						<li>Categoría 4</li>
+						<li>Categoría 6</li>
+						<li>Categoría 7</li>
+					</ul>
+				</div-->	
+				<div id="rightColumn" class="column">
+				<!---->
+					<h2>Últimos Post</h2>
+					<ul class="posts">
+						<li>
+							<img src="#" alt="" />
+							<p>Título hfhdf hfsdugf dsgfhdsg fh fghdsg f fgdhsgfhds f gsdfhgdshf d
+							</p>
+						</li>
+						<li>
+							<img src="#" alt="" />
+							<p>Título</p>
+						</li>
+						<li>
+							<img src="#" alt="" />
+							<p>Título</p>
+						</li>
+						<li>
+							<img src="#" alt="" />
+							<p>Título</p>
+						</li>
+						<li>
+							<img src="#" alt="" />
+							<p>Título</p>
+						</li>
+						<li>
+							<img src="#" alt="" />
+							<p>Título</p>
+						</li>
+					</ul>
+				<!---->
+					 <!--div id='map'></div-->
+				</div>
+			</article>
+
+			<script type="text/javascript" src="http://sdk.cocoafish.com/js/cocoafish-1.2.min.js"></script>
+
+			<script type="text/javascript">
+				oauth_consumer_key = "BP0p9Kiono5H4zQYMrD1wZmc2M6nFhwq";
+				oauth_secret = "LdEzhIX58xy27c5gn9mxH0N6yWLZkylK";
+				api_key = "Mjivq3q8Xj6AALMv5bK7zsHnQVXHr68y";
+
+				//var sdk = new Cocoafish( oauth_consumer_key, oauth_secret);
+				var sdk = new Cocoafish(api_key);
+
+				sdk.sendRequest(
+					'	places/show.json', 
+					'POST', 
+					{'place_id' : '501881bf611540415e000907'}, 
+					function callback(data) {
+						if(data) {
+						    if(data.meta) {
+						      var meta = data.meta;
+						      if(meta.status == 'ok' && meta.code == 200 && meta.method_name == 'createUser') {
+						        /*
+							        var message = '';
+							        var user = data.response.users[0];
+							        message += 'Create user successful!\n';
+							        message += 'id:' + user.id + '\n';
+							        message += 'first name:' + user.first_name + '\n';
+							        message += 'last name:' + user.last_name + '\n';
+							        message += 'email:' + user.email + '\n';
+							        alert(message); */
+								//console.log( jQuery.parseJSON(data) );
+								console.log( "success");
+						      }
+						    }
+						  }
+						}
+					}
+				);
+
+			</script>
+
+			
+		</section>
+	</div>
+
+</html>
+</body>
